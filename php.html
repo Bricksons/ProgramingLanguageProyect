@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<body style="background-color: teal;">
+	<title>Test 1</title>
+
+	<?php
+		function myFunction() {
+			$result;
+			$n = $_POST["number1"];
+			$number = intval($n);
+			
+			// checking if number is negative
+			if ($number < 0) {
+				$_POST["number1"] = null;
+			}
+			// if number is 0
+			else if ($number === 0) {
+				$_POST["number1"] = 1;
+			}
+			// if number is positive
+			else {
+				$result = 1;
+				for ($i = 1; $i <= $number; $i++) {
+					$result *= $i;
+				}
+				$_POST["number1"] = $result;
+			}
+		}
+
+		function myFunction2() {
+			$c = $_POST["number1"];
+			$celsius = intval($c);
+			
+			// calculate fahrenheit
+			$fahrenheit = ($celsius * 1.8) + 32;
+			$_POST["number1"] = $fahrenheit;
+		}
+
+		function myFunction3() {
+			$d = $_POST["number1"];
+			$decimal = intval($d);
+			
+			$bin = 0;
+			$rem;
+			$i = 1;
+			$step = 1;
+			
+			while ($decimal != 0) {
+				$rem = $decimal % 2;
+				echo "Step ".$step++.": ".$decimal."/2, Remainder = ".$rem.", Quotient = ".intval($decimal/2);
+				$decimal = intval($decimal / 2);
+				$bin = $bin + $rem * $i;
+				$i = $i * 10;
+			}
+			
+			$_POST["number1"] = $bin;
+		}
+
+		function myFunction4() {
+			header("Location: menu.html");
+			exit;
+		}
+		
+		if ($_SERVER["REQUEST_METHOD"] == "POST") {
+			if (isset($_POST["factorial"])) {
+				myFunction();
+			} elseif (isset($_POST["celsiusToFahrenheit"])) {
+				myFunction2();
+			} elseif (isset($_POST["decimalToBinary"])) {
+				myFunction3();
+			}
+		}
+	?>
+
+</head>
+<body>
+	<h1>PHP programs</h1>
+	<p>The buttons give the result of its operation</p>
+	<ul>
+
+	<form method="post" action="">
+		<label for="number1"></label>
+		<input type="number" id="number1" name="number1">
+
+		<li><button type="submit" name="factorial">Factorial</button></li>
+		<div id="result"><?php echo $_POST["number1"]; ?></div>
+
+		<li><button type="submit" name="celsiusToFahrenheit">C to F</button></li>
+		<div id="result2"><?php echo $_POST["number1"]; ?></div>
+
+		<li><button type="submit" name="decimalToBinary">Binary</button></li>
+		<div id="result3"><?php echo $_POST["number1"]; ?></div>
+	</form>
+	<button onclick="myFunction4()">Back</button>
+	</ul>
+	<script>
+      function myFunction4() {
+	    window.location.href = "menu.html";
+      }
+    </script>	
+
+
+	<?php
+		if (isset($_POST["back"])) {
+			myFunction4();
+		}
+	?>
+
+</body>
+</html>
