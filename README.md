@@ -21,5 +21,6 @@ Su clase debe permitir decidir (activar/desactivar) si una entrada del CV va en 
 
 Referencias:
 https://www.programiz.com/javascript/examples
+
 https://www.tutorialspoint.com/how-to-generate-a-pdf-from-an-html-webpage
 
