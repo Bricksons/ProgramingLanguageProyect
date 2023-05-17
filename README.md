@@ -18,3 +18,8 @@ Las categorías y sus entradas en el resume, estarán en formato CSV, XML o JSON
 Debe incluir un método que imprima su resume en HTML y mostrarlo también en la página 
 También que se genere un PDF automáticamente y que active un botón HTML para descarga. 
 Su clase debe permitir decidir (activar/desactivar) si una entrada del CV va en el resume. 
+
+Referencias:
+https://www.programiz.com/javascript/examples
+https://www.tutorialspoint.com/how-to-generate-a-pdf-from-an-html-webpage
+
