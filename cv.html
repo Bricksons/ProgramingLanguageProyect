@@ -1,0 +1,64 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+    <title>Curriculum Vitae</title>
+	   <body style="background-color: teal;">
+	   <link rel="stylesheet" type="text/css" href="styles.css">
+	</head>
+
+	<body>
+	  <h1 class="title">Curriculum Vitae</h1>
+	  <div class="card" id="generatePDF">
+	  <p>Personal Information:</p>
+	  <ul>
+		<li>Name: Jose Gabriel Gonzalez Guillama</li>
+		<li>Email: jose.gonzalez116@upr.edu</li>
+		<li>Phone: (939)267-8857</li>
+	  </ul>
+	  
+	  <p>Resumen:</p>
+	  <ul>
+		<li>Soy un apasionado de la programacion con habilidades en C++ y Java, y un conocimiento basico de ingenieria de programacion y creacion  
+		de bases de datos. Estoy interesado en oportunidades laborales que me permitan utilizar mis habilidades en el desarrollo de software y la resolucion de problemas.</li>
+	  </ul>
+	  
+	  <p>Education:</p>
+	  <ul>
+		<li>High School Degree</li>  
+		<li>Bachelor's Degree in Computer Science</li>
+	  </ul>
+	  
+	  <p>Experience:</p>
+	  <ul>
+		<li>C++</li>
+		<li>Java</li>
+		<li>Basic Knowledge in Computer Engeniering</li>
+	</div>
+	</body>	
+	
+	<div class="button-container">
+	  <button id="pdfButton"><b>PDF</b></button>
+	  <button onclick="myFunction4()">Back</button>
+	</div> 
+
+	<script>
+	  function myFunction4(){
+		window.location.href = "menu.html";
+	  }
+	</script>
+	
+    <script>
+      var button = document.getElementById("pdfButton");
+      var makepdf = document.getElementById("generatePDF");
+      button.addEventListener("click", function () {
+         var mywindow = window.open("", "PRINT", "height=600,width=600");
+         mywindow.document.write(makepdf.innerHTML);
+         mywindow.document.close();
+         mywindow.focus();
+         mywindow.print();
+         return true;
+      });
+    </script>
+
+</html>
